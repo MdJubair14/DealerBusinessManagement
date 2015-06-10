@@ -1,5 +1,6 @@
 package jubair.dealerbusinessmanagement;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,8 +13,38 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
     }
 
+    public void accountActivity(){
+        Intent account = new Intent(this, AccountActivity.class);
+        startActivity(account);
+    }
+
+    public void companyActivity(){
+        Intent company = new Intent(this, CompanyActivity.class);
+        startActivity(company);
+    }
+
+    public void clientActivity(){
+        Intent client = new Intent(this, ClientActivity.class);
+        startActivity(client);
+    }
+
+    public void itemListActivity(){
+        Intent itemList = new Intent(this, ItemListActivity.class);
+        startActivity(itemList);
+    }
+
+    public void historyActivity(){
+        Intent history = new Intent(this, HistoryActivity.class);
+        startActivity(history);
+    }
+
+    public void statisticsActivity(){
+        Intent statistics = new Intent(this, StatisticsActivity.class);
+        startActivity(statistics);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

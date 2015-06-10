@@ -15,4 +15,10 @@
         <item>orion</item>
     </string-array>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_account">AccountActivity</string>
+    <string name="title_activity_history">HistoryActivity</string>
+    <string name="title_activity_client">ClientActivity</string>
+    <string name="title_activity_item_list">ItemListActivity</string>
+    <string name="title_activity_company">CompanyActivity</string>
+    <string name="title_activity_statistics">StatisticsActivity</string>
 </resources>

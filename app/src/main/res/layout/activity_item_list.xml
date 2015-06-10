@@ -1,0 +1,83 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="jubair.dealerbusinessmanagement.ItemListActivity">
+
+
+    <TextView
+        android:id="@+id/add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Item:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"/>
+
+    <EditText
+        android:id="@+id/add_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Give a Item Name"
+        android:layout_below="@+id/add"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/remove"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Remove Item:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_below="@+id/add_item"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"/>
+
+    <EditText
+        android:id="@+id/remove_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Give a Item Name"
+        android:layout_below="@+id/remove"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update Item:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_below="@+id/remove_item"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"/>
+
+    <EditText
+        android:id="@+id/previous_item_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Give changing Item Name"
+        android:layout_below="@+id/update"
+        android:layout_marginTop="20dp" />
+
+    <EditText
+        android:id="@+id/updated_item_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Give a new Name"
+        android:layout_below="@+id/previous_item_name"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/all_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="All Items:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_below="@+id/updated_item_name"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"/>
+
+
+
+</RelativeLayout>

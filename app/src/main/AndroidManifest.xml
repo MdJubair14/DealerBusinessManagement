@@ -28,6 +28,30 @@
             android:name=".MainActivity"
             android:label="@string/title_activity_main" >
         </activity>
+        <activity
+            android:name=".AccountActivity"
+            android:label="@string/title_activity_account" >
+        </activity>
+        <activity
+            android:name=".HistoryActivity"
+            android:label="@string/title_activity_history" >
+        </activity>
+        <activity
+            android:name=".ClientActivity"
+            android:label="@string/title_activity_client" >
+        </activity>
+        <activity
+            android:name=".ItemListActivity"
+            android:label="@string/title_activity_item_list" >
+        </activity>
+        <activity
+            android:name=".CompanyActivity"
+            android:label="@string/title_activity_company" >
+        </activity>
+        <activity
+            android:name=".StatisticsActivity"
+            android:label="@string/title_activity_statistics" >
+        </activity>
     </application>
 
 </manifest>

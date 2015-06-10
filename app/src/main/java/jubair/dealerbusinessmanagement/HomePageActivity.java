@@ -20,6 +20,11 @@ public class HomePageActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
+        checking();
+    }
+
+    public void checking(){
+
         name = (EditText) findViewById(R.id.user_name);
         password = (EditText) findViewById(R.id.user_password);
 
@@ -28,29 +33,23 @@ public class HomePageActivity extends ActionBarActivity {
 
         signIn(checkName, checkPassword);
 
-        addListenerOnButton();
-    }
-
-    public void addListenerOnButton(){
-        final Button signUp = (Button) findViewById(R.id.btn_signUp);
-        signUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i;
-                i = new Intent(HomePageActivity.this, RegisterActivity.class);
-                startActivity(i);
-            }
-        });
     }
 
     public void signIn(String checkName, String checkPassword){
 
-        if(checkName == "jubair" && checkPassword == "jubair"){
-            Intent mainActivity = new Intent(this, MainActivity.class);
-            startActivity(mainActivity);
+        if(checkName.equals("jubair") && checkPassword.equals("jubair") ){
+            final Button signUp = (Button) findViewById(R.id.btn_signUp);
+            signUp.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent mainActivity = new Intent(HomePageActivity.this, MainActivity.class);
+                    startActivity(mainActivity);
+                }
+            });
+
         }
         else{
-            Toast.makeText(this,"You don't Sing In\n Please Sign Up", Toast.LENGTH_SHORT);
+            Toast.makeText(HomePageActivity.this,"You currently don't Sing In\n Please Sign Up", Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -21,11 +21,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Menu"
-                android:textSize="40sp"
+                android:textSize="30sp"
                 android:textStyle="bold"
                 android:textAlignment="center"
-                android:layout_margin="30dp"
-                android:paddingLeft="90dp"/>
+                android:layout_marginLeft="90dp"
+                android:layout_marginTop="10dp"/>
 
         </LinearLayout>
 
@@ -36,20 +36,24 @@
             android:layout_weight="1">
 
             <Button
+                android:id="@+id/btn_account"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="ACCOUNT"
                 android:textSize="20sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:onClick="accountActivity"/>
 
             <Button
+                android:id="@+id/btn_client"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="CLIENT"
                 android:textSize="20sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:onClick="clientActivity"/>
 
         </LinearLayout>
 
@@ -60,20 +64,24 @@
             android:layout_weight="1">
 
             <Button
+                android:id="@+id/btn_company"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="COMPANY"
                 android:textSize="20sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:onClick="companyActivity"/>
 
             <Button
+                android:id="@+id/btn_item_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="ITEM LIST"
                 android:textSize="20sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:onClick="itemListActivity"/>
 
         </LinearLayout>
 
@@ -84,20 +92,24 @@
             android:layout_weight="1">
 
             <Button
+                android:id="@+id/btn_history"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="HISTORY"
                 android:textSize="20sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:onClick="historyActivity"/>
 
             <Button
+                android:id="@+id/btn_statistics"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="STATISTICS"
                 android:textSize="20sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:onClick="statisticsActivity"/>
 
         </LinearLayout>
 
@@ -108,6 +120,7 @@
             android:layout_weight="1">
 
             <Button
+                android:id="@+id/btn_exit"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
