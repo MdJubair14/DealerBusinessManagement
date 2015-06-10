@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add Company:"
+        android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_marginTop="10dp"
         android:padding="10dp"/>
@@ -20,14 +21,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/add"
-        android:hint="Give a company name"
-        android:layout_marginTop="20dp"/>
+        android:hint="Enter a company name"
+        android:layout_marginTop="5dp"/>
 
     <TextView
         android:id="@+id/remove"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Remove Company:"
+        android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_below="@+id/add_company"
         android:layout_marginTop="10dp"
@@ -38,37 +40,54 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/remove"
-        android:hint="Give a company name"
-        android:layout_marginTop="20dp"/>
+        android:hint="Enter a company name"
+        android:layout_marginTop="5dp"/>
 
     <TextView
         android:id="@+id/update"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Update Company:"
-        android:hint="Give a company name"
+        android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_below="@+id/remove_company"
         android:layout_marginTop="10dp"
         android:padding="10dp"/>
 
     <EditText
-        android:id="@+id/update_company"
+        android:id="@+id/previous_company"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/update"
-        android:hint="Give a company name"
+        android:hint="Enter a company name for updated"
         android:layout_marginTop="20dp" />
+
+    <EditText
+        android:id="@+id/updated_company"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/previous_company"
+        android:hint="Enter updated company name "
+        android:layout_marginTop="5dp" />
 
     <TextView
         android:id="@+id/current_company"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Current Company:"
+        android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_below="@+id/update_company"
-        android:layout_marginTop="20dp"
+        android:layout_below="@+id/updated_company"
+        android:layout_marginTop="10dp"
         android:padding="10dp"/>
 
+
+    <Button
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:text="show"
+        android:layout_below="@id/current_company"
+        android:layout_alignParentRight="true"
+        android:onClick="allCompany"/>
 
 </RelativeLayout>

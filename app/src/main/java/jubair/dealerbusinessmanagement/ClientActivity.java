@@ -1,9 +1,11 @@
 package jubair.dealerbusinessmanagement;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class ClientActivity extends ActionBarActivity {
@@ -14,6 +16,19 @@ public class ClientActivity extends ActionBarActivity {
         setContentView(R.layout.activity_client);
     }
 
+    /**
+     * single client's profile
+     * @param view
+     */
+    public void singleClient(View view){
+        Intent client = new Intent(ClientActivity.this, SingleClientActivity.class);
+        startActivity(client);
+    }
+
+    public void allClient(View view){
+        Intent clients = new Intent(ClientActivity.this, AllClientActivity.class);
+        startActivity(clients);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

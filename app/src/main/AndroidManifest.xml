@@ -52,6 +52,18 @@
             android:name=".StatisticsActivity"
             android:label="@string/title_activity_statistics" >
         </activity>
+        <activity
+            android:name=".SingleClientActivity"
+            android:label="@string/title_activity_single_client" >
+        </activity>
+        <activity
+            android:name=".AllClientActivity"
+            android:label="@string/title_activity_all_client" >
+        </activity>
+        <activity
+            android:name=".AllCompanyActivity"
+            android:label="@string/title_activity_all_company" >
+        </activity>
     </application>
 
 </manifest>

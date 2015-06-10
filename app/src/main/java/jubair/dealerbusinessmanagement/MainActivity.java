@@ -5,6 +5,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -16,36 +17,39 @@ public class MainActivity extends ActionBarActivity {
 
     }
 
-    public void accountActivity(){
+    public void accountActivity(View view){
         Intent account = new Intent(this, AccountActivity.class);
         startActivity(account);
     }
 
-    public void companyActivity(){
+    public void companyActivity(View view){
         Intent company = new Intent(this, CompanyActivity.class);
         startActivity(company);
     }
 
-    public void clientActivity(){
+    public void clientActivity(View view){
         Intent client = new Intent(this, ClientActivity.class);
         startActivity(client);
     }
 
-    public void itemListActivity(){
+    public void itemListActivity(View view){
         Intent itemList = new Intent(this, ItemListActivity.class);
         startActivity(itemList);
     }
 
-    public void historyActivity(){
+    public void historyActivity(View view){
         Intent history = new Intent(this, HistoryActivity.class);
         startActivity(history);
     }
 
-    public void statisticsActivity(){
+    public void statisticsActivity(View view){
         Intent statistics = new Intent(this, StatisticsActivity.class);
         startActivity(statistics);
     }
 
+    public void exit(View view){
+        MainActivity.this.finish();
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

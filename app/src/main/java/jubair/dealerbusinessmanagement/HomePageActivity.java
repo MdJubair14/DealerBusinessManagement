@@ -53,6 +53,11 @@ public class HomePageActivity extends ActionBarActivity {
         }
     }
 
+    public void registerAct(View view){
+        Intent register = new Intent(HomePageActivity.this, RegisterActivity.class);
+        startActivity(register);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

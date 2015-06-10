@@ -21,4 +21,7 @@
     <string name="title_activity_item_list">ItemListActivity</string>
     <string name="title_activity_company">CompanyActivity</string>
     <string name="title_activity_statistics">StatisticsActivity</string>
+    <string name="title_activity_single_client">SingleClientActivity</string>
+    <string name="title_activity_all_client">AllClientActivity</string>
+    <string name="title_activity_all_company">AllCompanyActivity</string>
 </resources>
