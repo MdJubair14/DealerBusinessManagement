@@ -10,13 +10,18 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import java.util.List;
 
 
 public class RegisterActivity extends ActionBarActivity {
 
+    DealerHandler db;
+    CompanyHandler ch;
+
     EditText name , password , company;
     Spinner spinner;
-    Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +30,6 @@ public class RegisterActivity extends ActionBarActivity {
 
         name = (EditText) findViewById(R.id.user_name);
         password = (EditText) findViewById(R.id.user_password);
-        btn = (Button) findViewById(R.id.btn_submit);
 
         spinner = (Spinner) findViewById(R.id.company_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.company_names, R.layout.support_simple_spinner_dropdown_item);
@@ -33,23 +37,39 @@ public class RegisterActivity extends ActionBarActivity {
 
         spinner.setAdapter(adapter);
 
+        db = new DealerHandler(this);
+        ch = new CompanyHandler(this);
         company = (EditText) findViewById(R.id.user_company);
-
-        submitActivity();
     }
 
 
-    public void submitActivity(){
-        final Button btn = (Button) findViewById(R.id.btn_submit);
+    public void submit(View view){
+        String dealerName = name.getText().toString();
+        String dealerPassword = password.getText().toString();
 
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(RegisterActivity.this, MainActivity.class);
-                startActivity(i);
+        if(dealerName.equals("") || dealerPassword.equals("") || dealerName == null  || dealerPassword == null){
+            Toast.makeText(this, "Name or password field is empty", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Dealer dealer = new Dealer(dealerName, dealerPassword);
+            db.insert(dealer);
+            Toast.makeText(this, "*****", Toast.LENGTH_SHORT).show();
+
+            String companyName = company.getText().toString();
+            int dealerId = db.getID(dealer);
+            if(companyName != null && dealerId != -1){
+                Company com = new Company(companyName,dealerId);
+                ch.insert(com);
             }
-        });
 
+            List<Company> list =ch.getAllCompanies();
+            for(Company c : list){
+                Toast.makeText(this, c.toString(), Toast.LENGTH_SHORT).show();
+            }
+
+            Intent i = new Intent(RegisterActivity.this, MainActivity.class);
+            startActivity(i);
+        }
     }
 
     @Override

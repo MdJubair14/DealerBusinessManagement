@@ -25,7 +25,11 @@ public class ClientActivity extends ActionBarActivity {
         startActivity(client);
     }
 
-    public void allClient(View view){
+    public void removeClient(View view){
+
+    }
+
+    public void allClients(View view){
         Intent clients = new Intent(ClientActivity.this, AllClientActivity.class);
         startActivity(clients);
     }

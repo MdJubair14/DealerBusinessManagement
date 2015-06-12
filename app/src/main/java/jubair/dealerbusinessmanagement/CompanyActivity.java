@@ -11,22 +11,20 @@ import android.widget.EditText;
 
 public class CompanyActivity extends ActionBarActivity {
 
-    EditText add, remove, up_old, up_new;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company);
-
-        add = (EditText) findViewById(R.id.add_company);
-        remove = (EditText) findViewById(R.id.remove_company);
-        up_old = (EditText) findViewById(R.id.previous_company);
-        up_new = (EditText) findViewById(R.id.updated_company);
     }
 
     public void allCompany(View view){
         Intent allCom = new Intent(CompanyActivity.this, AllCompanyActivity.class);
         startActivity(allCom);
+    }
+
+    public void singleCompany(View view){
+        Intent sinCom = new Intent(CompanyActivity.this, SingleCompanyActivity.class);
+        startActivity(sinCom);
     }
 
     @Override

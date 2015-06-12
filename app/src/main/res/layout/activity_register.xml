@@ -83,6 +83,6 @@
         android:text="Submit"
         android:textStyle="bold"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="30dp"/>
+        android:onClick="submit"/>
 
 </RelativeLayout>

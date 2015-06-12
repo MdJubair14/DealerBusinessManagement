@@ -64,6 +64,14 @@
             android:name=".AllCompanyActivity"
             android:label="@string/title_activity_all_company" >
         </activity>
+        <activity
+            android:name=".SingleItemActivity"
+            android:label="@string/title_activity_single_item" >
+        </activity>
+        <activity
+            android:name=".SingleCompanyActivity"
+            android:label="@string/title_activity_single_company" >
+        </activity>
     </application>
 
 </manifest>

@@ -12,18 +12,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add Client:"
-        android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_marginTop="10dp"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:textStyle="bold"/>
 
-    <EditText
-        android:id="@+id/add_client"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/btn_add_client"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:hint="Enter Client Name"
-        android:layout_below="@+id/add"
-        android:layout_marginTop="25dp"/>
+        android:text="Add"
+        android:layout_below="@id/add"
+        android:layout_alignParentRight="true"
+        android:onClick="singleItem"/>
 
     <TextView
         android:id="@+id/remove"
@@ -32,66 +32,67 @@
         android:text="Remove Client:"
         android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_below="@+id/add_client"
-        android:layout_marginTop="15dp"
+        android:layout_below="@+id/btn_add_client"
         android:padding="10dp"/>
 
     <EditText
         android:id="@+id/remove_client"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Client Name"
-        android:layout_below="@+id/remove"
-        android:layout_marginTop="25dp"/>
+        android:hint="Enter a Client Name"
+        android:layout_below="@+id/remove"/>
+
+    <Button
+        android:id="@+id/btn_remove_client"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:text="Remove"
+        android:layout_below="@id/remove_client"
+        android:layout_alignParentRight="true"
+        android:onClick="removeClient"/>
 
     <TextView
         android:id="@+id/update"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Update Client's data:"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Update Client:"
         android:textStyle="bold"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/remove_client"
-        android:layout_marginTop="15dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_below="@+id/btn_remove_client"
         android:padding="10dp"/>
 
     <EditText
-        android:id="@+id/up_client"
+        android:id="@+id/previous_client_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Client Name for update"
-        android:layout_below="@+id/update"
-        android:layout_marginTop="25dp"/>
+        android:hint="Enter client name for update"
+        android:layout_below="@+id/update" />
 
     <Button
-        android:id="@+id/btn_update"
+        android:id="@+id/btn_update_client"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:text="update"
-        android:layout_below="@id/up_client"
+        android:text="Update"
+        android:layout_below="@id/previous_client_name"
         android:layout_alignParentRight="true"
         android:onClick="singleClient"/>
 
-
     <TextView
-        android:id="@+id/all_clients"
+        android:id="@+id/all_client"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="All Clients:"
         android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_below="@+id/btn_update"
-        android:layout_marginTop="25dp"
+        android:layout_below="@+id/btn_update_client"
         android:padding="10dp"/>
 
     <Button
         android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:text="show"
-        android:layout_below="@id/all_clients"
+        android:text="Show"
+        android:layout_below="@id/all_client"
         android:layout_alignParentRight="true"
-        android:onClick="AllClient"/>
-
+        android:onClick="allClients"/>
 
 </RelativeLayout>
