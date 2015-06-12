@@ -72,6 +72,14 @@
             android:name=".SingleCompanyActivity"
             android:label="@string/title_activity_single_company" >
         </activity>
+        <activity
+            android:name=".UpdateCompanyActivity"
+            android:label="@string/title_activity_update_company" >
+        </activity>
+        <activity
+            android:name=".SelectCompanyActivity"
+            android:label="@string/title_activity_select_company" >
+        </activity>
     </application>
 
 </manifest>

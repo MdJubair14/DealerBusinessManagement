@@ -53,7 +53,6 @@ public class RegisterActivity extends ActionBarActivity {
         else{
             Dealer dealer = new Dealer(dealerName, dealerPassword);
             db.insert(dealer);
-            Toast.makeText(this, "*****", Toast.LENGTH_SHORT).show();
 
             String companyName = company.getText().toString();
             int dealerId = db.getID(dealer);

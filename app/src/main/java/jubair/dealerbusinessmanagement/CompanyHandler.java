@@ -25,9 +25,13 @@ public class CompanyHandler  extends SQLiteOpenHelper{
 
     public static final String NAME_FIELD = "name";
 
-    public static final String DEALER_FIELD = "name";
+    public static final String ADDRESS_FIELD = "address";
 
-    public String TABLE_COMPANY_SQL = "CREATE TABLE " + TABLE_COMPANY +  "(" + ID_FIELD + " INTEGER PRIMARY KEY, "+ NAME_FIELD +  " TEXT, " + DEALER_FIELD +  " TEXT" + ")";
+    public static final String CONTACT_FIELD = "contact";
+
+    public static final String DEALER_FIELD = "dealerId";
+
+    public String TABLE_COMPANY_SQL = "CREATE TABLE " + TABLE_COMPANY +  "(" + ID_FIELD + " INTEGER PRIMARY KEY, "+ NAME_FIELD +  " TEXT, " + ADDRESS_FIELD +  " TEXT, " + CONTACT_FIELD +  " TEXT, " + DEALER_FIELD +  " INTEGER" + ")";
 
 
     public CompanyHandler(Context context) {
@@ -50,6 +54,8 @@ public class CompanyHandler  extends SQLiteOpenHelper{
 
         ContentValues values = new ContentValues();
         values.put(NAME_FIELD, company.getName());
+        values.put(ADDRESS_FIELD, company.getAddress());
+        values.put(CONTACT_FIELD, company.getContactInfo());
         values.put(DEALER_FIELD, company.getCorrespondingDealerId());
 
         db.insert(TABLE_COMPANY, null, values);
@@ -72,9 +78,11 @@ public class CompanyHandler  extends SQLiteOpenHelper{
             for (int i = 0; i < cursor.getCount(); i++) {
                 int id_index = cursor.getInt(cursor.getColumnIndex(ID_FIELD));
                 String name = cursor.getString(cursor.getColumnIndex(NAME_FIELD));
+                String address = cursor.getString(cursor.getColumnIndex(ADDRESS_FIELD));
+                String contact = cursor.getString(cursor.getColumnIndex(CONTACT_FIELD));
                 int dealerId = cursor.getInt(cursor.getColumnIndex(DEALER_FIELD));
 
-                list.add(new Company(id_index, name, dealerId));
+                list.add(new Company(id_index, name, address, contact, dealerId));
                 cursor.moveToNext();
             }
         }

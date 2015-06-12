@@ -26,4 +26,6 @@
     <string name="title_activity_all_company">AllCompanyActivity</string>
     <string name="title_activity_single_item">SingleItemActivity</string>
     <string name="title_activity_single_company">SingleCompanyActivity</string>
+    <string name="title_activity_update_company">UpdateCompanyActivity</string>
+    <string name="title_activity_select_company">SelectCompanyActivity</string>
 </resources>

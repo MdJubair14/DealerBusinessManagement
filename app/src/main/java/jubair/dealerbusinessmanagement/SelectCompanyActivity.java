@@ -1,46 +1,24 @@
 package jubair.dealerbusinessmanagement;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
 
 
-public class CompanyActivity extends ActionBarActivity {
+public class SelectCompanyActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_company);
+        setContentView(R.layout.activity_select_company);
     }
 
-    public void showCompany(View view){
-        Intent showCom = new Intent(CompanyActivity.this, AllCompanyActivity.class);
-        startActivity(showCom);
-    }
-
-    public void selectCompany(View view){
-        Intent selectCom = new Intent(CompanyActivity.this, SelectCompanyActivity.class);
-        startActivity(selectCom);
-    }
-
-    public void updateCompany(View view){
-        Intent upCom = new Intent(CompanyActivity.this, UpdateCompanyActivity.class);
-        startActivity(upCom);
-    }
-
-    public void singleCompany(View view){
-        Intent sinCom = new Intent(CompanyActivity.this, SingleCompanyActivity.class);
-        startActivity(sinCom);
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_company, menu);
+        getMenuInflater().inflate(R.menu.menu_select_company, menu);
         return true;
     }
 

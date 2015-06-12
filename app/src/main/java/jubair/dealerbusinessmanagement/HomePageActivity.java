@@ -1,6 +1,7 @@
 package jubair.dealerbusinessmanagement;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,10 +14,15 @@ import android.widget.Toast;
 
 public class HomePageActivity extends ActionBarActivity {
 
+    DealerHandler db;
+    public static Dealer del;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
+
+        db = new DealerHandler(this);
     }
 
     public void signIn(View view){
@@ -27,10 +33,12 @@ public class HomePageActivity extends ActionBarActivity {
         String checkName = name.getText().toString();
         String checkPassword = password.getText().toString();
 
+        del = new Dealer(checkName, checkPassword);
+
         if(checkName.equals("") ||  checkPassword.equals("") || checkName == null || checkPassword == null){
             Toast.makeText(HomePageActivity.this,"Please enter information correctly", Toast.LENGTH_SHORT).show();
         }
-        else if(checkName.equals("jubair") && checkPassword.equals("jubair") ){
+        else if( db.getID(del) > 0){
             Intent main = new Intent(HomePageActivity.this, MainActivity.class);
             startActivity(main);
         }

@@ -10,7 +10,7 @@
         android:id="@+id/add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add Company:"
+        android:text="Add Company Information:"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:padding="10dp"
         android:textStyle="bold"/>
@@ -36,30 +36,45 @@
         android:layout_below="@+id/btn_add_company"
         android:padding="10dp"/>
 
-    <EditText
-        android:id="@+id/previous_company_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter client name for update"
-        android:layout_below="@+id/update" />
 
     <Button
-        android:id="@+id/btn_update_client"
+        android:id="@+id/btn_update_company"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:text="Update"
-        android:layout_below="@id/previous_company_name"
+        android:layout_below="@id/update"
         android:layout_alignParentRight="true"
-        android:onClick="singleCompany"/>
+        android:onClick="updateCompany"/>
+
+    <TextView
+        android:id="@+id/select"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Company:"
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_below="@+id/btn_update_company"
+        android:padding="10dp"/>
+
+
+    <Button
+        android:id="@+id/btn_select_company"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:text="Select"
+        android:layout_below="@id/select"
+        android:layout_alignParentRight="true"
+        android:onClick="selectCompany"/>
+
 
     <TextView
         android:id="@+id/all_company"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="All Company:"
+        android:text="Show Company Information:"
         android:textStyle="bold"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_below="@+id/btn_update_client"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_below="@+id/btn_select_company"
         android:padding="10dp"/>
 
     <Button
@@ -68,6 +83,6 @@
         android:text="Show"
         android:layout_below="@id/all_company"
         android:layout_alignParentRight="true"
-        android:onClick="allCompany"/>f
+        android:onClick="showCompany"/>f
 
 </RelativeLayout>

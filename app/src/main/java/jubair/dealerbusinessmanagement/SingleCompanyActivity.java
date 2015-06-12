@@ -1,17 +1,26 @@
 package jubair.dealerbusinessmanagement;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class SingleCompanyActivity extends ActionBarActivity {
-
+    CompanyHandler ch;
+    DealerHandler dh;
+    EditText name,address,contact;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_company);
+        name = (EditText) findViewById(R.id.company_name);
+        address = (EditText) findViewById(R.id.company_address);
+        contact = (EditText) findViewById(R.id.company_contact);
     }
 
 
@@ -22,6 +31,22 @@ public class SingleCompanyActivity extends ActionBarActivity {
         return true;
     }
 
+    public void submit(View view){
+        String companyName = name.getText().toString();
+        String companyAddress = address.getText().toString();
+        String companyContact = contact.getText().toString();
+        int correspondingDealer = dh.getID(HomePageActivity.del);
+
+        if(companyName==null || companyAddress==null || companyContact==null)
+            Toast.makeText(getApplicationContext(),"Please enter information correctly",Toast.LENGTH_SHORT).show();
+        else
+        {
+            Company company = new Company(companyName,companyAddress,companyContact,correspondingDealer);
+            ch.insert(company);
+            Intent ok = new Intent(SingleCompanyActivity.this, MainActivity.class);
+            startActivity(ok);
+        }
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

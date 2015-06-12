@@ -93,17 +93,17 @@ public class DealerHandler extends SQLiteOpenHelper{
                 int id_index = cursor.getInt(cursor.getColumnIndex(ID_FIELD));
                 String cname = cursor.getString(cursor.getColumnIndex(NAME_FIELD));
                 String cpassword = cursor.getString(cursor.getColumnIndex(PASSWORD_FIELD));
-                if(!cname.equals(name) && !cpassword.equals(password)) {
+                if(cname.equals(name) && cpassword.equals(password)) {
                     id = id_index;
                     break;
                 }
                 cursor.moveToNext();
             }
         }
-        com
 
         cursor.close();
         db.close();
+
         return id;
     }
 
