@@ -30,8 +30,10 @@ public class HomePageActivity extends ActionBarActivity {
         EditText name = (EditText) findViewById(R.id.user_name);
         EditText password = (EditText) findViewById(R.id.user_password);
 
+        Sha1 sha1 = new Sha1();
+
         String checkName = name.getText().toString();
-        String checkPassword = password.getText().toString();
+        String checkPassword = sha1.createHashPassword(password.getText().toString());
 
         del = new Dealer(checkName, checkPassword);
 

@@ -67,18 +67,23 @@ public class ClientHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void update(int id, String name, String email, String address, String phoneNumber, int dealersId){
+    public void update(Client client){
         SQLiteDatabase db = this.getWritableDatabase();
 
-        ContentValues values = new ContentValues();
-        values.put(CLIENT_NAME, name);
-        values.put(CLIENT_ADDRESS, address);
-        values.put(CLIENT_CONTACT_INFO, phoneNumber);
-        values.put(DEALER_FIELD, dealersId);
+        int id = getID(SelectClientActivity.selected);
+
+        if(id >= 0){
+            ContentValues values = new ContentValues();
+            values.put(CLIENT_NAME, client.getName());
+            values.put(CLIENT_ADDRESS, client.getAddress());
+            values.put(CLIENT_CONTACT_INFO, client.getContactInfo());
+            values.put(DEALER_FIELD, client.getDealersId());
 
 
-        db.update(TABLE_CLIENT, values, "=" + id, null);
-        db.close();
+            db.update(TABLE_CLIENT, values, "_id " + "=" + id, null);
+            db.close();
+        }
+
     }
 
    public List<Client> getAllClients(int dealersId){

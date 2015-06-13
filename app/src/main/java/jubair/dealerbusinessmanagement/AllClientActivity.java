@@ -12,10 +12,10 @@ import java.util.List;
 public class AllClientActivity extends ActionBarActivity {
 
     DealerHandler dh;
-    CompanyHandler ch;
+    ClientHandler ch;
     ListView listClient;
 
-    CustomizedAdapter adapter;
+    ClientAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,17 +23,17 @@ public class AllClientActivity extends ActionBarActivity {
         setContentView(R.layout.activity_all_client);
 
         dh = new DealerHandler(this);
-        ch = new CompanyHandler(this);
+        ch = new ClientHandler(this);
         listClient = (ListView) findViewById(R.id.lvClient);
         int correspondingDealer;
 
         correspondingDealer = dh.getID(HomePageActivity.del);
 
 
-        List<Company> list = ch.getAllCompanies(correspondingDealer);
+        List<Client> list = ch.getAllClients(correspondingDealer);
 
         if(list != null && list.size() > 0){
-            adapter = new CustomizedAdapter(this, list);
+            adapter = new ClientAdapter(this, list);
             listClient.setAdapter(adapter);
         }
     }

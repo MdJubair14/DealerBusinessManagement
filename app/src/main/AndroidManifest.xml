@@ -92,6 +92,10 @@
             android:name=".ClientOptionActivity"
             android:label="@string/title_activity_client_option" >
         </activity>
+        <activity
+            android:name=".UpdateClientActivity"
+            android:label="@string/title_activity_update_client" >
+        </activity>
     </application>
 
 </manifest>

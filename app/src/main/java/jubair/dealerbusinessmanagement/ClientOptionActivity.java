@@ -17,12 +17,17 @@ public class ClientOptionActivity extends ActionBarActivity {
     }
 
     public void update(View view){
-        Intent intent = new Intent(ClientOptionActivity.this, SelectClientActivity.class);
+        Intent intent = new Intent(ClientOptionActivity.this, UpdateClientActivity.class);
         startActivity(intent);
     }
 
     public void remove(View view){
-        Intent intent = new Intent(ClientOptionActivity.this, SelectClientActivity.class);
+        ClientHandler ch=new ClientHandler(this);
+        //Toast.makeText(getApplicationContext(), SelectCompanyActivity.deleted.toString(),Toast.LENGTH_SHORT).show();
+        Client client = SelectClientActivity.selected;
+        ch.delete(client);
+
+        Intent intent = new Intent(ClientOptionActivity.this, MainActivity.class);
         startActivity(intent);
     }
 

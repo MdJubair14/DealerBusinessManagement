@@ -20,6 +20,8 @@ public class RegisterActivity extends ActionBarActivity {
     DealerHandler db;
     CompanyHandler ch;
 
+    Sha1 sha1 = new Sha1();
+
     EditText name , password , company;
 
     @Override
@@ -38,7 +40,9 @@ public class RegisterActivity extends ActionBarActivity {
 
     public void submit(View view){
         String dealerName = name.getText().toString();
-        String dealerPassword = password.getText().toString();
+        String dealerPassword = sha1.createHashPassword(password.getText().toString());
+
+
 
         if(dealerName.equals("") || dealerPassword.equals("") || dealerName == null  || dealerPassword == null){
             Toast.makeText(this, "Name or password field is empty", Toast.LENGTH_SHORT).show();
