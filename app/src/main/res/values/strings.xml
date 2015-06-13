@@ -8,12 +8,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_register">RegisterActivity</string>
 
-    <string-array name="company_names">
-        <item>bits</item>
-        <item>sales</item>
-        <item>Kaz</item>
-        <item>orion</item>
-    </string-array>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_account">AccountActivity</string>
     <string name="title_activity_history">HistoryActivity</string>
@@ -28,4 +22,5 @@
     <string name="title_activity_single_company">SingleCompanyActivity</string>
     <string name="title_activity_update_company">UpdateCompanyActivity</string>
     <string name="title_activity_select_company">SelectCompanyActivity</string>
+    <string name="title_activity_company_option">CompanyOptionActivity</string>
 </resources>

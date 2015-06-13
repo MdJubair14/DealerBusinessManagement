@@ -62,13 +62,21 @@ public class CompanyHandler  extends SQLiteOpenHelper{
         db.close();
     }
 
-    public void update(Company company){
+    public void update(int id, String name, String address, String contact, int dealersId){
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
+        values.put(NAME_FIELD, name);
+        values.put(ADDRESS_FIELD, address);
+        values.put(CONTACT_FIELD, contact);
+        values.put(DEALER_FIELD, dealersId);
+
+
+        db.update(TABLE_COMPANY, values, ID_FIELD + "=" + id, null);
+        db.close();
     }
 
-    public List<Company> getAllCompanies(){
+    public List<Company> getAllCompanies(int dealersId){
         List<Company> list = new ArrayList<>();
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -82,7 +90,9 @@ public class CompanyHandler  extends SQLiteOpenHelper{
                 String contact = cursor.getString(cursor.getColumnIndex(CONTACT_FIELD));
                 int dealerId = cursor.getInt(cursor.getColumnIndex(DEALER_FIELD));
 
-                list.add(new Company(id_index, name, address, contact, dealerId));
+                if(dealerId==dealersId) {
+                    list.add(new Company(id_index, name, address, contact, dealerId));
+                }
                 cursor.moveToNext();
             }
         }

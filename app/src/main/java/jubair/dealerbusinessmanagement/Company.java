@@ -26,11 +26,6 @@ public class Company {
         this.correspondingDealerId = correspondingDealerId;
     }
 
-    public Company(String name, int correspondingDealerId) {
-        this.name = name;
-        this.correspondingDealerId = correspondingDealerId;
-    }
-
     public String getAddress() {
         return address;
     }

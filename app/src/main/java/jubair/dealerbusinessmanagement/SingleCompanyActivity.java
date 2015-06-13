@@ -21,6 +21,8 @@ public class SingleCompanyActivity extends ActionBarActivity {
         name = (EditText) findViewById(R.id.company_name);
         address = (EditText) findViewById(R.id.company_address);
         contact = (EditText) findViewById(R.id.company_contact);
+        dh = new DealerHandler(this);
+        ch = new CompanyHandler(this);
     }
 
 
@@ -35,16 +37,22 @@ public class SingleCompanyActivity extends ActionBarActivity {
         String companyName = name.getText().toString();
         String companyAddress = address.getText().toString();
         String companyContact = contact.getText().toString();
-        int correspondingDealer = dh.getID(HomePageActivity.del);
+        int correspondingDealer;
+
+        correspondingDealer = dh.getID(HomePageActivity.del);
 
         if(companyName==null || companyAddress==null || companyContact==null)
             Toast.makeText(getApplicationContext(),"Please enter information correctly",Toast.LENGTH_SHORT).show();
-        else
+        else if(correspondingDealer>0)
         {
             Company company = new Company(companyName,companyAddress,companyContact,correspondingDealer);
             ch.insert(company);
             Intent ok = new Intent(SingleCompanyActivity.this, MainActivity.class);
             startActivity(ok);
+        }
+        else
+        {
+            Toast.makeText(getApplicationContext(),"user name doesn't match.",Toast.LENGTH_SHORT).show();
         }
     }
     @Override

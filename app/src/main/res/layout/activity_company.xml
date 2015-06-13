@@ -26,6 +26,8 @@
 
 
 
+
+
     <TextView
         android:id="@+id/update"
         android:layout_width="match_parent"
@@ -83,6 +85,8 @@
         android:text="Show"
         android:layout_below="@id/all_company"
         android:layout_alignParentRight="true"
-        android:onClick="showCompany"/>f
+        android:onClick="showCompany"
+        android:id="@+id/button" />
+
 
 </RelativeLayout>

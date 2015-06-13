@@ -66,15 +66,6 @@
             android:layout_alignEnd="@+id/input_company"
             android:layout_marginTop="25dp"/>
 
-        <Spinner
-            android:id="@+id/company_spinner"
-            android:layout_width="80dp"
-            android:layout_height="20dp"
-            android:layout_below="@+id/user_company"
-            android:layout_alignParentRight="true">
-
-        </Spinner>
-
     <Button
         android:id="@+id/btn_submit"
         android:layout_width="150dp"

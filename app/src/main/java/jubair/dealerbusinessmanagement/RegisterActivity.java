@@ -21,7 +21,6 @@ public class RegisterActivity extends ActionBarActivity {
     CompanyHandler ch;
 
     EditText name , password , company;
-    Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,12 +29,6 @@ public class RegisterActivity extends ActionBarActivity {
 
         name = (EditText) findViewById(R.id.user_name);
         password = (EditText) findViewById(R.id.user_password);
-
-        spinner = (Spinner) findViewById(R.id.company_spinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.company_names, R.layout.support_simple_spinner_dropdown_item);
-        adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-
-        spinner.setAdapter(adapter);
 
         db = new DealerHandler(this);
         ch = new CompanyHandler(this);
@@ -57,16 +50,15 @@ public class RegisterActivity extends ActionBarActivity {
             String companyName = company.getText().toString();
             int dealerId = db.getID(dealer);
             if(companyName != null && dealerId != -1){
-                Company com = new Company(companyName,dealerId);
+                Company com = new Company(companyName,null,null,dealerId);
                 ch.insert(com);
-            }
 
-            List<Company> list =ch.getAllCompanies();
-            for(Company c : list){
-                Toast.makeText(this, c.toString(), Toast.LENGTH_SHORT).show();
+                List<Company> list =ch.getAllCompanies(dealerId);
+                for(Company c : list){
+                    Toast.makeText(this, c.toString(), Toast.LENGTH_SHORT).show();
+                }
             }
-
-            Intent i = new Intent(RegisterActivity.this, MainActivity.class);
+            Intent i = new Intent(RegisterActivity.this, HomePageActivity.class);
             startActivity(i);
         }
     }
