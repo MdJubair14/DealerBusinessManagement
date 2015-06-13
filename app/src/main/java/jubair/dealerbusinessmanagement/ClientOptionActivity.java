@@ -8,37 +8,28 @@ import android.view.MenuItem;
 import android.view.View;
 
 
-public class ClientActivity extends ActionBarActivity {
+public class ClientOptionActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_client);
+        setContentView(R.layout.activity_client_option);
     }
 
-    /**
-     * single client's profile
-     * @param view
-     */
-    public void singleClient(View view){
-        Intent client = new Intent(ClientActivity.this, SingleClientActivity.class);
-        startActivity(client);
-    }
-
-    public void removeUpdateClient(View view){
-        Intent intent = new Intent(ClientActivity.this, SelectClientActivity.class);
+    public void update(View view){
+        Intent intent = new Intent(ClientOptionActivity.this, SelectClientActivity.class);
         startActivity(intent);
     }
 
-    public void showClient(View view){
-        Intent clients = new Intent(ClientActivity.this, AllClientActivity.class);
-        startActivity(clients);
+    public void remove(View view){
+        Intent intent = new Intent(ClientOptionActivity.this, SelectClientActivity.class);
+        startActivity(intent);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_client, menu);
+        getMenuInflater().inflate(R.menu.menu_client_option, menu);
         return true;
     }
 

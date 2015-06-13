@@ -1,44 +1,24 @@
 package jubair.dealerbusinessmanagement;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 
-public class ClientActivity extends ActionBarActivity {
+public class SelectClientActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_client);
+        setContentView(R.layout.activity_select_client);
     }
 
-    /**
-     * single client's profile
-     * @param view
-     */
-    public void singleClient(View view){
-        Intent client = new Intent(ClientActivity.this, SingleClientActivity.class);
-        startActivity(client);
-    }
-
-    public void removeUpdateClient(View view){
-        Intent intent = new Intent(ClientActivity.this, SelectClientActivity.class);
-        startActivity(intent);
-    }
-
-    public void showClient(View view){
-        Intent clients = new Intent(ClientActivity.this, AllClientActivity.class);
-        startActivity(clients);
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_client, menu);
+        getMenuInflater().inflate(R.menu.menu_select_client, menu);
         return true;
     }
 

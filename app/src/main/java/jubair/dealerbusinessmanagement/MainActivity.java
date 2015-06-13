@@ -48,8 +48,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void exit(View view){
-        MainActivity.this.finish();
-        System.exit(0);
+        android.os.Process.killProcess(android.os.Process.myPid());
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

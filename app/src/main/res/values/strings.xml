@@ -23,4 +23,6 @@
     <string name="title_activity_update_company">UpdateCompanyActivity</string>
     <string name="title_activity_select_company">SelectCompanyActivity</string>
     <string name="title_activity_company_option">CompanyOptionActivity</string>
+    <string name="title_activity_select_client">SelectClientActivity</string>
+    <string name="title_activity_client_option">ClientOptionActivity</string>
 </resources>

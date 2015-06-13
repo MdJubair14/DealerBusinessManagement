@@ -125,7 +125,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Exit"
+                android:text="sign out"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_margin="20dp"

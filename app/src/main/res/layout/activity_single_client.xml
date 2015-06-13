@@ -35,31 +35,13 @@
 
 
     <TextView
-        android:id="@+id/email_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Email"
-        android:textStyle="bold"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_below="@id/client_name"
-        android:layout_marginTop="10dp"/>
-
-    <EditText
-        android:id="@+id/client_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter client email number"
-        android:layout_below="@id/email_id"
-        android:inputType="textEmailAddress"/>
-
-    <TextView
         android:id="@+id/address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Address"
         android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_below="@id/client_id"
+        android:layout_below="@id/client_name"
         android:layout_marginTop="10dp"/>
 
     <EditText
@@ -70,30 +52,30 @@
         android:layout_below="@id/address"/>
 
     <TextView
-        android:id="@+id/phone_number"
+        android:id="@+id/info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Phone Number"
+        android:text="Contact Info"
         android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_below="@id/client_address"
         android:layout_marginTop="10dp"/>
 
     <EditText
-        android:id="@+id/client_phone_num"
+        android:id="@+id/client_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter client name"
+        android:hint="Enter client info"
         android:inputType="number"
-        android:layout_below="@id/phone_number"/>
+        android:layout_below="@id/info"/>
 
     <Button
         android:id="@id/btn_submit"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Submit"
-        android:layout_below="@id/client_phone_num"
+        android:layout_below="@id/client_info"
         android:layout_centerHorizontal="true"
-        android:onClick="work"/>
+        android:onClick="submit"/>
 
 </RelativeLayout>

@@ -14,13 +14,16 @@ public class UpdateCompanyActivity extends ActionBarActivity {
     CompanyHandler ch;
     DealerHandler dh;
     EditText name,address,contact;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_company);
+
         name = (EditText) findViewById(R.id.company_name);
         address = (EditText) findViewById(R.id.company_address);
         contact = (EditText) findViewById(R.id.company_contact);
+
         dh = new DealerHandler(this);
         ch = new CompanyHandler(this);
     }
@@ -36,12 +39,19 @@ public class UpdateCompanyActivity extends ActionBarActivity {
 
         if(companyName==null || companyAddress==null || companyContact==null)
             Toast.makeText(getApplicationContext(), "Please enter information correctly", Toast.LENGTH_SHORT).show();
-        else
+
+        else if(correspondingDealer>0)
         {
-           // ch.update(id,companyName,companyAddress,companyContact,dealersId);
+            Company company = new Company(companyName,companyAddress,companyContact,correspondingDealer);
+            ch.update(company);
             Intent ok = new Intent(UpdateCompanyActivity.this, MainActivity.class);
             startActivity(ok);
         }
+        else
+        {
+            Toast.makeText(getApplicationContext(),"user name doesn't match.",Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     @Override

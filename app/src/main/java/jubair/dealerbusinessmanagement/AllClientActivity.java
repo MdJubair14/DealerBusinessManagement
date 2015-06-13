@@ -4,14 +4,38 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+
+import java.util.List;
 
 
 public class AllClientActivity extends ActionBarActivity {
+
+    DealerHandler dh;
+    CompanyHandler ch;
+    ListView listClient;
+
+    CustomizedAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_client);
+
+        dh = new DealerHandler(this);
+        ch = new CompanyHandler(this);
+        listClient = (ListView) findViewById(R.id.lvClient);
+        int correspondingDealer;
+
+        correspondingDealer = dh.getID(HomePageActivity.del);
+
+
+        List<Company> list = ch.getAllCompanies(correspondingDealer);
+
+        if(list != null && list.size() > 0){
+            adapter = new CustomizedAdapter(this, list);
+            listClient.setAdapter(adapter);
+        }
     }
 
 

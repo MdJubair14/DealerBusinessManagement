@@ -6,32 +6,22 @@ package jubair.dealerbusinessmanagement;
 public class Client {
     private  int id;
     private String name;
-    private String email;
     private String address;
-    private String phoneNumber;
+    private String contactInfo;
     private int dealersId;
 
-    /**
-     *
-     * @param name
-     * @param email
-     * @param address
-     * @param phoneNumber
-     */
-    public Client(int id,String name , String email, String address, String  phoneNumber,int dealersId) {
+    public Client(int id,String name , String address, String  contactInfo,int dealersId) {
         this.id = id;
         this.name = name;
-        this.email = email;
         this.address = address;
-        this.phoneNumber = phoneNumber;
+        this.contactInfo = contactInfo;
         this.dealersId = dealersId;
     }
 
-    public Client(String name, String email, String address, String phoneNumber, int dealersId) {
+    public Client(String name, String address, String contactInfo, int dealersId) {
         this.name = name;
-        this.email = email;
         this.address = address;
-        this.phoneNumber = phoneNumber;
+        this.contactInfo = contactInfo;
         this.dealersId = dealersId;
     }
 
@@ -59,14 +49,6 @@ public class Client {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getAddress() {
         return address;
     }
@@ -75,11 +57,11 @@ public class Client {
         this.address = address;
     }
 
-    public String  getPhoneNumber() {
-        return phoneNumber;
+    public String getContactInfo() {
+        return contactInfo;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setContactInfo(String contactInfo) {
+        this.contactInfo = contactInfo;
     }
 }

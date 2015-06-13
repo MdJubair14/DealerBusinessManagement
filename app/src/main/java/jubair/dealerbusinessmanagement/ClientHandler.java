@@ -19,14 +19,12 @@ public class ClientHandler extends SQLiteOpenHelper {
     public static final String TABLE_CLIENT = "CLIENT";
     public static final String ID = "_id";
     public static final String CLIENT_NAME = "name";
-    public static final String CLIENT_EMAIL = "email";
-
     public static final String CLIENT_ADDRESS = "address";
-    public static final String  CLIENT_PHONE_NUMBER = "phone number";
+    public static final String  CLIENT_CONTACT_INFO = "info";
     public static final String DEALER_FIELD = "dealerId";
 
     public String CREATE_CLIENT_TABLE = "CREATE TABLE " + TABLE_CLIENT + " (" + ID + " INTEGER PRIMARY KEY, " +
-            CLIENT_NAME + " TEXT, " + CLIENT_EMAIL + " TEXT, " + CLIENT_ADDRESS + " TEXT, " + CLIENT_PHONE_NUMBER + " TEXT, " + DEALER_FIELD + " INTEGER" + ")";
+            CLIENT_NAME + " TEXT, " + CLIENT_ADDRESS + " TEXT, " + CLIENT_CONTACT_INFO + " TEXT, " + DEALER_FIELD + " INTEGER" + ")";
 
     public ClientHandler(Context context){
 
@@ -61,9 +59,8 @@ public class ClientHandler extends SQLiteOpenHelper {
         ContentValues contentValues = new ContentValues();
 
         contentValues.put(CLIENT_NAME, client.getName());
-        contentValues.put(CLIENT_EMAIL, client.getEmail());
         contentValues.put(CLIENT_ADDRESS, client.getAddress());
-        contentValues.put(CLIENT_PHONE_NUMBER, client.getPhoneNumber());
+        contentValues.put(CLIENT_CONTACT_INFO, client.getContactInfo());
         contentValues.put(DEALER_FIELD, client.getDealersId());
 
         db.insert(TABLE_CLIENT, null, contentValues);
@@ -75,9 +72,8 @@ public class ClientHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(CLIENT_NAME, name);
-        values.put(CLIENT_EMAIL, email);
         values.put(CLIENT_ADDRESS, address);
-        values.put(CLIENT_PHONE_NUMBER, phoneNumber);
+        values.put(CLIENT_CONTACT_INFO, phoneNumber);
         values.put(DEALER_FIELD, dealersId);
 
 
@@ -95,13 +91,12 @@ public class ClientHandler extends SQLiteOpenHelper {
             for (int i = 0; i < cursor.getCount(); i++) {
                 int id_index = cursor.getInt(cursor.getColumnIndex(ID));
                 String name = cursor.getString(cursor.getColumnIndex(CLIENT_NAME));
-                String email = cursor.getString(cursor.getColumnIndex(CLIENT_EMAIL));
                 String address = cursor.getString(cursor.getColumnIndex(CLIENT_ADDRESS));
-                String phoneNumber = cursor.getString(cursor.getColumnIndex(CLIENT_PHONE_NUMBER));
+                String contactInfo = cursor.getString(cursor.getColumnIndex(CLIENT_CONTACT_INFO));
                 int dealerId = cursor.getInt(cursor.getColumnIndex(DEALER_FIELD));
 
                 if(dealerId==dealersId) {
-                    list.add(new Client(id_index, name, email, address, phoneNumber, dealerId));
+                    list.add(new Client(id_index, name, address, contactInfo, dealerId));
                 }
                 cursor.moveToNext();
             }
@@ -111,6 +106,50 @@ public class ClientHandler extends SQLiteOpenHelper {
         db.close();
 
         return list;
+    }
+
+    public int getID(Client client){
+        int id=-1 ;
+        String name = client.getName();
+        String address = client.getAddress();
+        String contact = client.getContactInfo();
+        int dealersId = client.getDealersId();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_CLIENT,null,null,null,null,null,null);
+
+        if(cursor!=null && cursor.getCount()>0) {
+            cursor.moveToFirst();
+            for(int i=0; i<cursor.getCount();i++)
+            {
+                int id_index = cursor.getInt(cursor.getColumnIndex(ID));
+                String cname = cursor.getString(cursor.getColumnIndex(CLIENT_NAME));
+                String caddress = cursor.getString(cursor.getColumnIndex(CLIENT_ADDRESS));
+                String ccontact = cursor.getString(cursor.getColumnIndex(CLIENT_CONTACT_INFO));
+                int cdealersId = cursor.getInt(cursor.getColumnIndex(DEALER_FIELD));
+                if(cname.equals(name) && caddress.equals(address) && ccontact.equals(contact) && cdealersId== dealersId){
+                    id = id_index;
+                    return id;
+                }
+                cursor.moveToNext();
+            }
+        }
+
+        cursor.close();
+        db.close();
+
+        return id;
+    }
+
+
+    public void delete(Client client){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        int id = getID(client);
+
+        if (id>=0)
+            db.delete(TABLE_CLIENT, "_id " + "=" + id,null);
+        db.close();
     }
 
 }

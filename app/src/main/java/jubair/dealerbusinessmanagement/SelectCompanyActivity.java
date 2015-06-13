@@ -1,11 +1,13 @@
 package jubair.dealerbusinessmanagement;
 
 import android.content.Intent;
+import android.provider.SyncStateContract;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -16,7 +18,10 @@ public class SelectCompanyActivity extends ActionBarActivity {
     DealerHandler dh;
     CompanyHandler ch;
     ListView lvCompany;
-    Company c;
+
+    public static Company selected;
+    public static Company deleted;
+
     int correspondingDealer;
 
     CustomizedAdapter adapter;
@@ -38,22 +43,22 @@ public class SelectCompanyActivity extends ActionBarActivity {
             adapter = new CustomizedAdapter(this, list);
             lvCompany.setAdapter(adapter);
         }
+
+        lvCompany.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Object a = lvCompany.getItemAtPosition(position);
+                selected = (Company) a;
+                deleted = (Company) a;
+                selected.setCorrespondingDealerId(correspondingDealer);
+                deleted.setCorrespondingDealerId(correspondingDealer);
+
+                Intent intent = new Intent(SelectCompanyActivity.this, CompanyOptionActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
-    public void option(View view)
-    {
-        TextView name = (TextView) lvCompany.findViewById(R.id.txtName);
-        TextView address = (TextView) lvCompany.findViewById(R.id.txtAddress);
-        TextView contact = (TextView) lvCompany.findViewById(R.id.txtContact);
-
-        String cName = name.toString();
-        String cAddress = address.toString();
-        String cContact = contact.toString();
-
-        c = new Company(cName, cAddress, cContact, correspondingDealer);
-        Intent intent = new Intent(SelectCompanyActivity.this, CompanyOptionActivity.class);
-        startActivity(intent);
-    }
 
 
     @Override

@@ -24,10 +24,6 @@
         android:layout_alignParentRight="true"
         android:onClick="singleCompany"/>
 
-
-
-
-
     <TextView
         android:id="@+id/update"
         android:layout_width="match_parent"

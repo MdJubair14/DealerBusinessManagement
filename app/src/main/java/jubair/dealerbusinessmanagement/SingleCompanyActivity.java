@@ -14,6 +14,7 @@ public class SingleCompanyActivity extends ActionBarActivity {
     CompanyHandler ch;
     DealerHandler dh;
     EditText name,address,contact;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,13 +26,6 @@ public class SingleCompanyActivity extends ActionBarActivity {
         ch = new CompanyHandler(this);
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_single_company, menu);
-        return true;
-    }
 
     public void submit(View view){
         String companyName = name.getText().toString();
@@ -55,6 +49,14 @@ public class SingleCompanyActivity extends ActionBarActivity {
             Toast.makeText(getApplicationContext(),"user name doesn't match.",Toast.LENGTH_SHORT).show();
         }
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_single_company, menu);
+        return true;
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

@@ -50,7 +50,7 @@ public class RegisterActivity extends ActionBarActivity {
             String companyName = company.getText().toString();
             int dealerId = db.getID(dealer);
             if(companyName != null && dealerId != -1){
-                Company com = new Company(companyName,null,null,dealerId);
+                Company com = new Company(companyName,"","",dealerId);
                 ch.insert(com);
 
                 List<Company> list =ch.getAllCompanies(dealerId);

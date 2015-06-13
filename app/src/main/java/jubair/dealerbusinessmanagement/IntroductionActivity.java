@@ -31,7 +31,7 @@ public class IntroductionActivity extends ActionBarActivity {
         };
 
         Timer t = new Timer();
-        t.schedule(timerTask, 3000);
+        t.schedule(timerTask, 2000);
 
     }
 

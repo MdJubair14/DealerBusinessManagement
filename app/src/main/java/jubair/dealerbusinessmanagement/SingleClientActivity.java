@@ -1,19 +1,57 @@
 package jubair.dealerbusinessmanagement;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class SingleClientActivity extends ActionBarActivity {
+
+    ClientHandler clientHandler;
+    DealerHandler dh;
+    EditText name,address,contact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_client);
+
+        name = (EditText) findViewById(R.id.client_name);
+        address = (EditText) findViewById(R.id.client_address);
+        contact = (EditText) findViewById(R.id.client_info);
+
+        dh = new DealerHandler(this);
+        clientHandler = new ClientHandler(this);
     }
 
+    public void submit(View view){
+        String clientName = name.getText().toString();
+        String clientAddress = address.getText().toString();
+        String clientContact = contact.getText().toString();
+
+        int correspondingDealer;
+
+        correspondingDealer = dh.getID(HomePageActivity.del);
+
+        if(clientName==null || clientAddress==null || clientContact==null)
+            Toast.makeText(getApplicationContext(), "Please enter information correctly", Toast.LENGTH_SHORT).show();
+        else if(correspondingDealer>0)
+        {
+            Client client = new Client(clientName,clientAddress,clientContact,correspondingDealer);
+            clientHandler.insert(client);
+            Intent ok = new Intent(SingleClientActivity.this, MainActivity.class);
+            startActivity(ok);
+        }
+        else
+        {
+            Toast.makeText(getApplicationContext(),"user name doesn't match.",Toast.LENGTH_SHORT).show();
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

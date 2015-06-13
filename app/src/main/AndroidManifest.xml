@@ -84,6 +84,14 @@
             android:name=".CompanyOptionActivity"
             android:label="@string/title_activity_company_option" >
         </activity>
+        <activity
+            android:name=".SelectClientActivity"
+            android:label="@string/title_activity_select_client" >
+        </activity>
+        <activity
+            android:name=".ClientOptionActivity"
+            android:label="@string/title_activity_client_option" >
+        </activity>
     </application>
 
 </manifest>
