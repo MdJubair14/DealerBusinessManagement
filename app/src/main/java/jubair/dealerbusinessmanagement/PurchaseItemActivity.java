@@ -9,32 +9,34 @@ import android.view.View;
 import android.widget.EditText;
 
 
-public class ItemListActivity extends ActionBarActivity {
-
-
+public class PurchaseItemActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_item_list);
-
+        setContentView(R.layout.activity_purchase);
     }
 
-    public void singleItem(View view){
-        Intent item = new Intent(ItemListActivity.this, SingleItemActivity.class);
-        startActivity(item);
-    }
-
-    public void allItem(View view){
-
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_item_list, menu);
+        getMenuInflater().inflate(R.menu.menu_purchase, menu);
         return true;
     }
+
+    public void purchase(View view)
+    {
+        EditText quantity = (EditText) findViewById(R.id.quantity);
+        Double q = Double.parseDouble(quantity.getText().toString());
+        Double rate = SelectItemActivity.selected.getPrice();
+
+        AccountActivity.debit += (q*rate);
+
+        Intent i = new Intent(this,MainActivity.class);
+        setIntent(i);
+    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

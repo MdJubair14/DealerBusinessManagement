@@ -96,6 +96,34 @@
             android:name=".UpdateClientActivity"
             android:label="@string/title_activity_update_client" >
         </activity>
+        <activity
+            android:name=".SelectItemActivity"
+            android:label="@string/title_activity_select_item" >
+        </activity>
+        <activity
+            android:name=".AllItemActivity"
+            android:label="@string/title_activity_all_item" >
+        </activity>
+        <activity
+            android:name=".ItemOptionActivity"
+            android:label="@string/title_activity_item_option" >
+        </activity>
+        <activity
+            android:name=".UpdateItemActivity"
+            android:label="@string/title_activity_update_item" >
+        </activity>
+        <activity
+            android:name=".SellItemActivity"
+            android:label="@string/title_activity_selltem" >
+        </activity>
+        <activity
+            android:name=".PurchaseItemActivity"
+            android:label="@string/title_activity_purchase" >
+        </activity>
+        <activity
+            android:name=".SellOptionActivity"
+            android:label="@string/title_activity_sell_option" >
+        </activity>
     </application>
 
 </manifest>

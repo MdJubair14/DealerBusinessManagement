@@ -6,38 +6,26 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.EditText;
 
 
-public class AccountActivity extends ActionBarActivity {
-
-    public static double credit = 0;
-    public static double debit = 0;
-    public static double profit = 0;
-    public static double balance = credit-debit;
+public class SellOptionActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_account);
-
-        TextView debitV = (TextView) findViewById(R.id.debit);
-        debitV.setText(String.valueOf(debit));
-
-        TextView creditV = (TextView) findViewById(R.id.credit);
-        creditV.setText(String.valueOf(credit));
-
-        TextView balanceV = (TextView) findViewById(R.id.balance);
-        balanceV.setText(String.valueOf(balance));
-
-        TextView profitV = (TextView) findViewById(R.id.profit);
-        profitV.setText(String.valueOf(profit));
-
+        setContentView(R.layout.activity_sell_option);
     }
-
-
-    public void back(View v)
+    public void sell(View view)
     {
+        EditText quantity = (EditText) findViewById(R.id.quantity);
+        Double q = Double.parseDouble(quantity.getText().toString());
+        Double rate = SelectItemActivity.selected.getPrice();
+        Double percentage = SelectItemActivity.selected.getPercentage();
+
+        AccountActivity.credit += (q*rate);
+        AccountActivity.profit += (percentage*q);
+
         Intent i = new Intent(this,MainActivity.class);
         setIntent(i);
     }
@@ -45,7 +33,7 @@ public class AccountActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_account, menu);
+        getMenuInflater().inflate(R.menu.menu_sell_option, menu);
         return true;
     }
 

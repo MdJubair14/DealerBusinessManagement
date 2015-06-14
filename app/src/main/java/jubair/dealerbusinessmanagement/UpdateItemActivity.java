@@ -10,7 +10,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
-public class SingleItemActivity extends ActionBarActivity {
+public class UpdateItemActivity extends ActionBarActivity {
+
     ItemHandler ih;
     DealerHandler dh;
     EditText name, price, quantity, percentage;
@@ -18,7 +19,7 @@ public class SingleItemActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_single_item);
+        setContentView(R.layout.activity_update_item);
 
         name = (EditText) findViewById(R.id.item_name);
         price = (EditText) findViewById(R.id.item_price);
@@ -29,8 +30,8 @@ public class SingleItemActivity extends ActionBarActivity {
         ih = new ItemHandler(this);
     }
 
-    public void work(View view){
-
+    public void work(View view)
+    {
         String iName = name.getText().toString();
         Double  iPrice = Double.parseDouble(price.getText().toString());
         Double  iQuantity = Double.parseDouble(quantity.getText().toString());
@@ -42,23 +43,26 @@ public class SingleItemActivity extends ActionBarActivity {
 
         if(iName==null || iPrice==null  || iQuantity== null || iPercentage==null)
             Toast.makeText(getApplicationContext(), "Please enter information correctly", Toast.LENGTH_SHORT).show();
+
         else if(correspondingDealer>0)
         {
             Item item = new Item(iName, iPrice, iQuantity, iPercentage, correspondingDealer);
-            ih.insert(item);
-            Intent ok = new Intent(SingleItemActivity.this, MainActivity.class);
+            ih.update(item);
+            Intent ok = new Intent(UpdateItemActivity.this, MainActivity.class);
             startActivity(ok);
         }
         else
         {
             Toast.makeText(getApplicationContext(),"user name doesn't match.",Toast.LENGTH_SHORT).show();
         }
+
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_single_item, menu);
+        getMenuInflater().inflate(R.menu.menu_update_item, menu);
         return true;
     }
 

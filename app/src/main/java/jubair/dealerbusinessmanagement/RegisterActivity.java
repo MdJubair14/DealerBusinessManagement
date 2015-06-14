@@ -58,9 +58,6 @@ public class RegisterActivity extends ActionBarActivity {
                 ch.insert(com);
 
                 List<Company> list =ch.getAllCompanies(dealerId);
-                for(Company c : list){
-                    Toast.makeText(this, c.toString(), Toast.LENGTH_SHORT).show();
-                }
             }
             Intent i = new Intent(RegisterActivity.this, HomePageActivity.class);
             startActivity(i);

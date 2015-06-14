@@ -7,44 +7,86 @@
     tools:context="jubair.dealerbusinessmanagement.AccountActivity">
 
 
-    <TextView
-        android:id="@+id/current_state"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="CURRENT ACCOUNT STATE"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:layout_marginTop="15dp"
-        android:padding="15dp"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Debit:"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/debitMsg" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/debit"
+            android:layout_marginBottom="30dp"/>
 
 
-    <TextView
-        android:id="@+id/debit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="DEBIT :"
-        android:layout_below="@+id/current_state"
-        android:layout_marginTop="40dp"
-        android:padding="10dp"/>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Credit"
+            android:id="@+id/creditMsg"
+            android:layout_marginBottom="20dp"/>
 
-    <TextView
-        android:id="@+id/credit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="CREDIT :"
-        android:layout_below="@+id/debit"
-        android:layout_marginTop="20dp"
-        android:padding="10dp"/>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/credit"
+            android:layout_marginBottom="30dp"
+            />
 
-    <TextView
-        android:id="@+id/balance"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="BALANCE :"
-        android:layout_below="@+id/credit"
-        android:layout_marginTop="20dp"
-        android:padding="10dp"/>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Balance:"
+            android:id="@+id/balanceMsg"
+            android:layout_marginBottom="20dp"/>
 
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/balance"
+            android:layout_marginBottom="30dp"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Profit:"
+            android:id="@+id/profitMsg"
+            android:layout_marginBottom="20dp"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/profit"
+            android:layout_marginBottom="30dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:id="@+id/btnBack"
+            android:layout_gravity="center_horizontal"
+            android:onClick="back"/>
+    </LinearLayout>
 </RelativeLayout>

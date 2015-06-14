@@ -26,4 +26,11 @@
     <string name="title_activity_select_client">SelectClientActivity</string>
     <string name="title_activity_client_option">ClientOptionActivity</string>
     <string name="title_activity_update_client">UpdateClientActivity</string>
+    <string name="title_activity_select_item">SelectItemActivity</string>
+    <string name="title_activity_all_item">AllItemActivity</string>
+    <string name="title_activity_item_option">ItemOptionActivity</string>
+    <string name="title_activity_update_item">UpdateItemActivity</string>
+    <string name="title_activity_selltem">SelltemActivity</string>
+    <string name="title_activity_purchase">PurchaseActivity</string>
+    <string name="title_activity_sell_option">SellOptionActivity</string>
 </resources>

@@ -1,38 +1,24 @@
 package jubair.dealerbusinessmanagement;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
 
 
-public class ItemListActivity extends ActionBarActivity {
-
-
+public class AllItemActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_item_list);
-
+        setContentView(R.layout.activity_all_item);
     }
 
-    public void singleItem(View view){
-        Intent item = new Intent(ItemListActivity.this, SingleItemActivity.class);
-        startActivity(item);
-    }
-
-    public void allItem(View view){
-
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_item_list, menu);
+        getMenuInflater().inflate(R.menu.menu_all_item, menu);
         return true;
     }
 
